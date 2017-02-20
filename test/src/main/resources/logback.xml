@@ -1,0 +1,23 @@
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  <logger name="com.hongclip" level="DEBUG"/>
+  
+  <logger name="org.springframework"  level="INFO"></logger>
+  <logger name="org.springframework.web.bind.anonotation.support.HandlerMethodInvoker"  level="INFO"></logger>
+  <logger name="org.springframework.web.servlet.DispatcherServlet"  level="INFO"></logger>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+  </root>
+
+<!-- 
+  <root level="WARN">
+    <appender-ref ref="STDOUT" />
+  </root>
+   -->
+</configuration>
