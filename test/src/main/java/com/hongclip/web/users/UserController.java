@@ -92,8 +92,8 @@ public class UserController {
 	
 
 	@RequestMapping(value = "/users/create", method = RequestMethod.POST)
-	public String create(@Valid User user ,BindingResult bindingResult) {
-		log.debug("USER : {}" , user );
+	public String create(@Valid User user ,BindingResult bindingResult,Model model) {
+		log.debug(" /users/create USER : {}" , user );
 		
 		if (bindingResult.hasErrors()){
 			log.debug("Binding Result Has error!!!");
@@ -104,9 +104,14 @@ public class UserController {
 			// 애러 발생시 회원가입 화면으로 이동
 			return "users/form";
 		}
-		
+		// DB 아이디 중복 체크
+		if(  user.getUserId().equals(UserDao.findById(user.getUserId()).getUserId()) ){
+			model.addAttribute("errorMessage", "DB 아이디 중복 입니다");
+			return "users/form";
+		}
 		UserDao.create(user);
 		log.debug("DB  :  {}" , UserDao.findById(user.getUserId()));
+		
 		return "redirect:/";
 	}
 	

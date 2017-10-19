@@ -54,7 +54,7 @@ public class MyBatisTest {
 
 			log.debug("actual: {}", actual);
 			log.debug("user: {}", user);
-			
+
 			assertThat(actual, is(user));
 
 		} finally {

@@ -22,5 +22,7 @@
 
 	<!-- <bean id="userDao" class="com.hongclip.dao.users.UserDao"		p:dataSource-ref ="dataSource"	/> -->
 	<bean id="userDao" class="com.hongclip.dao.users.UserDao"		p:dataSource-ref ="mysqlDataSource"	/>
+	
+
 
 </beans>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
 <%@ include file="../commons/_head.jspf" %>
@@ -20,10 +19,10 @@
 				
 						<c:choose>
 							<c:when test="${empty user.userId }">
-								<c:set var="method" value="post"></c:set>
+								<c:set var="method" value="post"/>
 							</c:when>
 							<c:otherwise>
-								<c:set var="method" value="put"></c:set>
+								<c:set var="method" value="put"/>
 							</c:otherwise>
 						</c:choose>				
 				
@@ -34,13 +33,23 @@
 						<div class="controls">
 						<c:choose>
 							<c:when test="${empty user.userId }">
-							<form:input path="userId"/>
-							<form:errors path="userId" cssClass="error"></form:errors>
+								<form:input  path="userId"/>
+								<form:errors path="userId" cssClass="error"></form:errors>
+				
 							</c:when>
 							<c:otherwise>
-							<!--<form:input path="userId" disabled="true" />-->
-							${user.userId}
-							<form:hidden path="userId" />
+								<!--<form:input path="userId" disabled="true" />-->
+								<c:choose>
+								<c:when test="${not empty errorMessage }">
+									<form:input  path="userId"/>								
+									<div>${errorMessage}</div>
+								</c:when>
+								<c:otherwise>
+									${user.userId}
+									<form:hidden path="userId" />								
+								</c:otherwise>
+								</c:choose>
+
 							</c:otherwise>
 						</c:choose>
 						</div>

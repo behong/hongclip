@@ -12,7 +12,7 @@
     
     <!-- mysqlDatabase -->
     <entry key="mysqlDatabase.driverClassName">com.mysql.jdbc.Driver</entry>
-    <entry key="mysqlDatabase.url">jdbc:mysql://komvo.fun25.co.kr:16604/GoClip</entry>
+    <entry key="mysqlDatabase.url">jdbc:mysql://komvo.fun25.co.kr:17604/GoClip</entry>
     <entry key="mysqlDatabase.username">root</entry>
     <entry key="mysqlDatabase.password">hoho1122</entry>
  
